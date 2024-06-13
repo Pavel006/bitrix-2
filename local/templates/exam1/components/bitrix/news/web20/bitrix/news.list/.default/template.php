@@ -24,7 +24,6 @@ $this->setFrameMode(true);
 	$this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
 	$this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
 	?>
-
 	<div class="review-block" id="<?=$this->GetEditAreaId($arItem['ID']);?>">
 		<div class="review-text">
 			<div class="review-block-title">
@@ -33,8 +32,8 @@ $this->setFrameMode(true);
 				</span>
 				<span class="review-block-description">
 					<?=$arItem["DISPLAY_ACTIVE_FROM"];?> г.
-					<?if ($arItem["DISPLAY_PROPERTIES"]["POSITION"]["VALUE"] != ""){ echo ", " . $arItem["PROPERTIES"]["POSITION"]["VALUE"];}?>
-					<?if ($arItem["DISPLAY_PROPERTIES"]["COMPANY"]["VALUE"] != "") { echo ", " . $arItem["PROPERTIES"]["COMPANY"]["VALUE"]; }?>
+					<?if (!empty($arItem["DISPLAY_PROPERTIES"]["POSITION"]["VALUE"])){ echo ", " . $arItem["DISPLAY_PROPERTIES"]["POSITION"]["VALUE"];}?>
+					<?if (!empty($arItem["DISPLAY_PROPERTIES"]["COMPANY"]["VALUE"])) { echo ", " . $arItem["DISPLAY_PROPERTIES"]["COMPANY"]["VALUE"]; }?>
 				</span>
 			</div>
 			<?if($arItem["PREVIEW_TEXT"] != ""){?>
@@ -45,7 +44,7 @@ $this->setFrameMode(true);
 		</div>
 		<div class="review-img-wrap">
 			<a href="<?=$arItem["DETAIL_PAGE_URL"];?>">
-				<?if($arItem["PREVIEW_PICTURE"]){?>
+				<?if(!empty($arItem["PREVIEW_PICTURE"])){?>
 				<img src="<?=$arItem["PREVIEW_PICTURE"]["SRC"];?>" alt="Картинка для анонса">
 				<?}
 				else{?>
