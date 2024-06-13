@@ -59,6 +59,7 @@ $APPLICATION->SetTitle("Новости");
 		0 => "",
 		1 => "",
 	),
+	"DETAIL_URL" => "rew/#CODE#/",
 	"DETAIL_DISPLAY_TOP_PAGER" => "N",
 	"DETAIL_DISPLAY_BOTTOM_PAGER" => "Y",
 	"DETAIL_PAGER_TITLE" => "Страница",

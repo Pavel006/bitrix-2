@@ -32,8 +32,8 @@ $this->setFrameMode(true);
 														<img src="<?=SITE_TEMPLATE_PATH;?>/img/rew/no_photo.jpg" alt="картинка отзыва">
 													<?}?>
 												</div>
-						<div class="name-block"><a href="/rew<?=$arItem["DETAIL_PAGE_URL"]?>/"><?echo $arItem["NAME"]?></a></div>
-						<div class="pos-block"><?=$arItem["PROPERTIES"]["POSITION"]["VALUE"]?>, <?=$arItem["PROPERTIES"]["COMPANY"]["VALUE"]?></div>
+						<div class="name-block"><a href="<?=$arItem["DETAIL_PAGE_URL"]?>"><?echo $arItem["NAME"]?></a></div>
+						<div class="pos-block"><?=$arItem["DISPLAY_PROPERTIES"]["POSITION"]["VALUE"]?>, <?=$arItem["DISPLAY_PROPERTIES"]["COMPANY"]["VALUE"]?></div>
 					</div>
 					<div class="text-block"><?echo substr($arItem["PREVIEW_TEXT"], 0, 150);?>...</div>
 				</div>
