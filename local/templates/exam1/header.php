@@ -1,17 +1,30 @@
+<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <!DOCTYPE html>
 <html lang="ru">
 
 <head>
-    <title>Внутренняя</title>
+    <title><?$APPLICATION->ShowTitle();?></title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="<?=SITE_TEMPLATE_PATH;?>/css/reset.css" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<?
+		$APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH.'/css/reset.css');
+		$APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH.'/css/style.css');
+		$APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH.'/css/owl.carousel.css');
+
+		$APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH.'/js/jquery.min.js');
+		$APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH.'/js/owl.carousel.min.js');
+		$APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH.'/js/scripts.js');
+		$APPLICATION->ShowCSS();
+		$APPLICATION->ShowHead();
+		$APPLICATION->ShowPanel();
+	?>
+<!--<link rel="stylesheet" href="<?=SITE_TEMPLATE_PATH;?>/css/reset.css" />
     <link rel="stylesheet" href="<?=SITE_TEMPLATE_PATH;?>/css/style.css" />
     <link rel="stylesheet" href="<?=SITE_TEMPLATE_PATH;?>/css/owl.carousel.css" />
     <script src="<?=SITE_TEMPLATE_PATH;?>/js/jquery.min.js"></script>
     <script src="<?=SITE_TEMPLATE_PATH;?>/js/owl.carousel.min.js"></script>
-    <script src="<?=SITE_TEMPLATE_PATH;?>/js/scripts.js"></script>
+    <script src="<?=SITE_TEMPLATE_PATH;?>/js/scripts.js"></script>-->
 	<link rel="icon" type="image/vnd.microsoft.icon" href="<?=SITE_TEMPLATE_PATH;?>/img/favicon.ico">
     <link rel="shortcut icon" href="<?=SITE_TEMPLATE_PATH;?>/img/favicon.ico">
 </head>
@@ -130,7 +143,7 @@
             </div>
         </nav>
         <!-- /nav -->
-		<?if($APPLICATION->GetCurPage() != "/"){?>
+		<?if($APPLICATION->GetCurPage(false) != "/"){?>
 			<!-- breadcrumbs -->
 			<div class="breadcrumbs-box">
 				<div class="inner-wrap">
