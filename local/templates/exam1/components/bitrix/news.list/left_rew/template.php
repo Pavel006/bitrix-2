@@ -33,9 +33,16 @@ $this->setFrameMode(true);
 													<?}?>
 												</div>
 						<div class="name-block"><a href="<?=$arItem["DETAIL_PAGE_URL"]?>"><?echo $arItem["NAME"]?></a></div>
-						<div class="pos-block"><?=$arItem["DISPLAY_PROPERTIES"]["POSITION"]["VALUE"]?>, <?=$arItem["DISPLAY_PROPERTIES"]["COMPANY"]["VALUE"]?></div>
+						<div class="pos-block">
+  							<?php if (!empty($arItem["DISPLAY_PROPERTIES"]["POSITION"]["VALUE"])) { ?>
+								<?=$arItem["DISPLAY_PROPERTIES"]["POSITION"]["VALUE"]?>, 
+							<?php } ?>
+							<?php if (!empty($arItem["DISPLAY_PROPERTIES"]["COMPANY"]["VALUE"])) { ?>
+								<?=$arItem["DISPLAY_PROPERTIES"]["COMPANY"]["VALUE"]?>
+							<?php } ?>
+						</div>
 					</div>
-					<div class="text-block"><?echo substr($arItem["PREVIEW_TEXT"], 0, 150);?>...</div>
+					<div class="text-block"><?=TruncateText(substr($arItem["PREVIEW_TEXT"], 0, 150), "...")?></div>
 				</div>
 			</div>
 		</div>
